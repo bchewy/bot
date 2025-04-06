@@ -535,6 +535,13 @@ module.exports = class TicketManager {
 					.setEmoji(getMessage('buttons.close.emoji'))
 					.setLabel(getMessage('buttons.close.text')),
 			);
+			components.addComponents(
+				new ButtonBuilder()
+					.setCustomId(JSON.stringify({ action: 'custom', id: 'force_close' }))
+					.setStyle(ButtonStyle.Danger)
+					.setEmoji(getMessage('buttons.force_close.emoji', {}, '⚠️'))
+					.setLabel(getMessage('buttons.force_close.text', {}, 'Force Close')),
+			);
 		}
 
 		const pings = category.pingRoles.map(r => `<@&${r}>`).join(' ');
